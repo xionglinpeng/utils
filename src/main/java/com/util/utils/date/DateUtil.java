@@ -292,13 +292,13 @@ public class DateUtil {
 	 * <p>获取两个时间的天数间隔</p>
 	 * @param time1 时间1
 	 * @param time2 时间2
-	 * @return 天数间隔
+	 * @return 天数间隔,如果时间是同一天，则返回1。
 	 */
 	public static int intervalTimeDay(Date time1,Date time2){
 		int day = (int) ((time2.getTime()-time1.getTime())/1000/3600/24);
 		if(day<0) day = -day;
-		return day;
+		return day==0?1:day;
 	}
 	
-	
+
 }
