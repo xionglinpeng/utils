@@ -1,11 +1,9 @@
 package com.util.utils.crypt;
 
-import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Signature;
@@ -14,10 +12,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 
 import org.apache.commons.codec.binary.Base64;
 
@@ -143,12 +138,7 @@ public class RSACrypt {
 	 * @param key 密钥,如果秘钥是privateKey，则是私钥解密，如果是publicKey，则是公钥解密。
 	 * @param data 解密的数据。
 	 * @return 解密后的数据，如果解密失败，返回null。
-	 * @throws InvalidKeyException 
-	 * @throws NoSuchPaddingException 
-	 * @throws NoSuchAlgorithmException 
-	 * @throws BadPaddingException 
-	 * @throws IllegalBlockSizeException 
-	 * @throws Exception 
+	 * @return 解密后的字符串。
 	 */
 	public static String decrypt(Key key,String data) {
 		try {
