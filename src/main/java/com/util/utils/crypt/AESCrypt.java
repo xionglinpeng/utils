@@ -7,8 +7,8 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
+import com.util.utils.conversion.ConversionSystemUtils;
 import com.util.utils.crypt.exception.AESDecryptFailException;
-import com.util.utils.hexadecimal.HexadecimalConversion;
 
 /**
  * <p>AES加解密。</p>
@@ -34,7 +34,7 @@ public class AESCrypt {
 		Cipher cipher = Cipher.getInstance(Algorithm.AES);
 		cipher.init(Cipher.ENCRYPT_MODE, keySpec);
 		byte[] b = cipher.doFinal(data.getBytes("UTF-8"));
-		return HexadecimalConversion.parseByte2HexStr(b);
+		return ConversionSystemUtils.parseByte2HexStr(b);
 	}
 	
 	/**
@@ -53,7 +53,7 @@ public class AESCrypt {
 			SecretKeySpec keySpec = new SecretKeySpec(enCodeFormat, Algorithm.AES);
 			Cipher cipher = Cipher.getInstance(Algorithm.AES);
 			cipher.init(Cipher.DECRYPT_MODE, keySpec);
-			return new String(cipher.doFinal(HexadecimalConversion.parseHexStr2Byte(data)));
+			return new String(cipher.doFinal(ConversionSystemUtils.parseHexStr2Byte(data)));
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new AESDecryptFailException(secretKey, data);

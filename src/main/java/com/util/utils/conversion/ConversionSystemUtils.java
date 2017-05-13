@@ -1,12 +1,11 @@
-package com.util.utils.hexadecimal;
+package com.util.utils.conversion;
 
 /**
  * <p>不同进制之间的转换</p>
  * @author xlp
  *
  */
-public class HexadecimalConversion {
-	
+public class ConversionSystemUtils {
 	/**
 	 * <p>将二进制转换成16进制。</p>
 	 * @param buf 二进制字节数组。
